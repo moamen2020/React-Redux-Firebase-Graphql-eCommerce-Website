@@ -7,6 +7,8 @@ import Logo from "./../../assets/logo.png";
 
 const Header = (props) => {
   const { currentUser } = props;
+  console.log(currentUser);
+
   return (
     <header className="header">
       <div className="wrap">

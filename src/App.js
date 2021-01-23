@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./default.scss";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { auth, handleUserProfile, firestore } from "./firebase/utils";
+import { auth, handleUserProfile } from "./firebase/utils";
 
 // Layout
 import MainLayout from "./layouts/MainLayout";
@@ -30,7 +30,6 @@ class App extends Component {
     this.authListener = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await handleUserProfile(userAuth);
-        console.log(firestore);
         userRef.onSnapshot((snapshot) => {
           this.setState({
             currentUser: {
@@ -39,10 +38,10 @@ class App extends Component {
             },
           });
         });
-        this.setState({
-          ...initialState,
-        });
       }
+      this.setState({
+        ...initialState,
+      });
     });
   }
 
