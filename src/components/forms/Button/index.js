@@ -3,9 +3,9 @@ import "./styles.scss";
 
 const Button = ({ children, ...otherProps }) => {
   return (
-    <div className="btn" {...otherProps}>
+    <button className="btn" {...otherProps}>
       {children}
-    </div>
+    </button>
   );
 };
 
